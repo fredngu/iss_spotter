@@ -1,7 +1,7 @@
 // index.js
 const { nextISSTimesForMyLocation } = require('./iss');
 
-const printISSTimesForLocation = (passTimes) => {
+const printISSTimesForLocation = function(passTimes) {
   for (const times of passTimes) {
     const datetime = new Date(0);
     datetime.setUTCSeconds(times.risetime);
@@ -10,10 +10,12 @@ const printISSTimesForLocation = (passTimes) => {
   }
 };
 
-nextISSTimesForMyLocation((error, passTimes) => {
-  if (error) {
-    return console.log("It didn't work!", error);
-  }
-  // success, print out the deets!
-  printISSTimesForLocation(passTimes);
-});
+// nextISSTimesForMyLocation((error, passTimes) => {
+//   if (error) {
+//     return console.log("It didn't work!", error);
+//   }
+//   // success, print out the deets!
+//   printISSTimesForLocation(passTimes);
+// });
+
+module.exports = { printISSTimesForLocation }
